@@ -1,0 +1,182 @@
+@font-face {
+    font-family: 'regular';
+    src: url(/fonts/regular.ttf);
+}
+
+@font-face {
+    font-family: 'bold';
+    src: url(/fonts/bold.ttf);
+}
+
+:root {
+    /* Fonts */
+    --regular: 'regular';
+    --bold: 'bold';
+
+    /* Colors */
+    --white: #fff;
+    --grey:#f7f7f7;
+    --grey-2: #6d6a7f;
+    --grey-100: #b6bcc6;
+    --dark: #030712;
+    --dark-10:#374151;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: var(--regular);
+    background-color: #fafafa;
+}
+
+p {
+    line-height: 1.4em;
+}
+
+.container {
+    margin-top: 1rem;
+    padding: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container-cards {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-title {
+    font-family: var(--bold);
+    font-size: 20px;
+}
+
+.sub-title {
+    margin-top: 6px;
+    color: var(--grey-2);
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+}
+
+.logo {
+    width: 48px;
+    filter: drop-shadow(rgba(0, 0, 0, 0.05) 0px 0px 1.25rem);
+    border: 1px solid #e1e0e7;
+    /* background-color: #fff; */
+    border-radius: 50%;
+    padding: .4rem;
+    transition: border-color 0.25s ease-in-out;
+}
+
+.card-competition-name {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    margin-top: 2rem
+}
+
+.title {
+    margin-left: 1rem;
+    font-family: var(--bold);
+}
+
+.card-match {
+    min-width: 320px;
+    border: 1px solid #e1e0e7;
+    border-radius: 6px;
+    padding: 20px 14px;
+    background: #fff;
+    margin-bottom: 1rem;
+}
+
+
+.card-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.team {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.team img{
+    width: 24px;
+}
+
+.team-name {
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+.card-match-hour {
+    margin-right: 2rem;
+    font-size: 14px;
+    font-family: var(--bold);
+}
+
+.tv {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.title-competition{
+    font-family: var(--bold);
+    font-size: 14px;
+}
+
+.event-competition {
+    font-family: var(--regular);
+    font-size: 14px;
+}
+
+
+@media (min-width: 664px) {
+    .container {
+        margin-top: 2rem;
+        padding: 2rem;
+    }
+
+    .container-cards {
+        display: grid;
+        grid-row-gap: 1.5rem;
+        grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+        margin-top: 1.25rem;
+        width: 100%;
+        gap: 1.5rem;
+    }
+
+    .team img{
+        width: 28px;
+    }
+
+    .team-name {
+        font-size: 15px;
+    }
+
+    .card-match-hour {
+        font-size: 15px;
+    }
+
+    .tv {
+        font-size: 15px;
+    }
+
+    .title-competition{
+    font-size: 15px;
+    }
+
+    .event-competition {
+        font-size: 15px;
+    }
+
+
+}
