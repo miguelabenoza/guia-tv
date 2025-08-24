@@ -68,9 +68,9 @@ p {
     width: 48px;
     filter: drop-shadow(rgba(0, 0, 0, 0.05) 0px 0px 1.25rem);
     border: 1px solid #e1e0e7;
-    /* background-color: #fff; */
+    background-color: #fff;
     border-radius: 50%;
-    padding: .4rem;
+    padding: .3rem;
     transition: border-color 0.25s ease-in-out;
 }
 
@@ -114,28 +114,28 @@ p {
 
 .team-name {
     margin-left: 10px;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .card-match-hour {
     margin-right: 2rem;
-    font-size: 14px;
+    font-size: 16px;
     font-family: var(--bold);
 }
 
 .tv {
     margin-top: 10px;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .title-competition{
     font-family: var(--bold);
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .event-competition {
     font-family: var(--regular);
-    font-size: 14px;
+    font-size: 16px;
 }
 
 
@@ -158,8 +158,8 @@ p {
         width: 28px;
     }
 
-    .team-name {
-        font-size: 15px;
+    /* .team-name {
+        font-size: 16px;
     }
 
     .card-match-hour {
@@ -176,7 +176,7 @@ p {
 
     .event-competition {
         font-size: 15px;
-    }
+    } */
 
 
 }
