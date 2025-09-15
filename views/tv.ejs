@@ -1,0 +1,87 @@
+<%- include('header.ejs') %>
+
+<div class="container">
+    <p class="main-title">Retransmisiones deportivas</p>
+    <p id="fecha" class="sub-title"></p>
+
+    <% futbol.forEach(competicion => { %>
+      <% if (competicion.partidos && competicion.partidos.length > 0) { %>
+        <div class="card-competition-name">
+          <img class="logo" src="<%= competicion.logo %>" alt="<%= competicion.nombre %>">
+          <p class="title"><%= competicion.nombre %></p>
+        </div>
+    
+        <div class="container-cards">
+        <% competicion.partidos.forEach(element => { %>
+            <div class="card-match">
+                <div class="card-info">
+                <div class="card-match-teams">
+                    <div class="team">
+                    <img src="<%= element.escudo_local %>" alt="<%= element.equipo_local %>">
+                    <p class="team-name"><%= element.equipo_local %></p>
+                    </div>
+                    
+                    <div class="team">
+                    <img src="<%= element.escudo_visitante %>" alt="<%= element.equipo_visitante %>">
+                    <p class="team-name"><%= element.equipo_visitante %></p>
+                    </div>
+                </div>
+                <div class="card-match-hour"><%= element.hora %></div>
+                </div>
+                <div class="tv"><%= element.nombre_tv %></div>
+            </div>
+            <% }) %>
+        </div>
+            <% } %>
+    <% }) %>
+    
+    
+    
+    <% otros.forEach(competicion => { %>
+      <% if (competicion.eventos && competicion.eventos.length > 0) { %>
+        <div class="card-competition-name">
+          <img class="logo" src="<%= competicion.logo %>" alt="<%= competicion.nombre %>">
+          <p class="title"><%= competicion.nombre %></p>
+        </div>
+        
+        <div class="container-cards">
+        <% competicion.eventos.forEach(element => { %>
+            <div class="card-match">
+                <div class="card-info">
+                    <div class="card-match-teams">
+                        <p class="title-competition"><%= element.nombre_competicion %></p>
+                        <p class="event-competition"><%= element.nombre_evento %></p>
+                    </div>
+                    <div class="card-match-hour"><%= element.hora %></div>
+                </div>
+                <div class="tv"><%= element.nombre_tv %></div>
+            </div>
+            <% }) %>
+        </div>
+            <% } %>
+    <% }) %>
+
+</div>
+
+<script>
+    function mostrarFechaActual() {
+      const hoy = new Date();
+
+      const opciones = {
+        weekday: 'long',  // nombre del día
+        year: 'numeric',  // año completo
+        month: 'long',    // mes en letras
+        day: 'numeric'    // número del día
+      };
+
+      const fechaModificada = hoy.toLocaleDateString('es-ES', opciones);
+
+      // Insertar en el <p>
+      document.getElementById("fecha").textContent = fechaModificada;
+    }
+
+    // Llamar a la función al cargar la página
+    mostrarFechaActual();
+  </script>
+
+<%- include('footer.ejs') %> 

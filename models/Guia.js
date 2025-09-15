@@ -15,4 +15,6 @@ const guiaTvSchema = Schema({
 
 const guiaTv = mongoose.model('guiaTv', guiaTvSchema);
 
-export default guiaTv;
+
+// Exportar ambos
+export {guiaTv};

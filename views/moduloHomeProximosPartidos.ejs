@@ -1,0 +1,54 @@
+
+<% if (fixtures.length > 0) { %>
+<div class="container-news">
+  <h1 class="main-title">🎯 Próximos partidos</h1>
+</div>
+<div class="flex">
+  
+<!-- Próximoso partidos -->
+    <ul class="container-matches">
+      <% fixtures.forEach(match => { 
+          const fecha = new Date(match.fixture.date); 
+      %>
+        <li>
+            <div class="card-team-match">
+                <div class="match-teams">
+                  <div class="team-left">
+                      <img class="img-team" src="<%= match.teams.home.logo %>" alt="<%= match.teams.home.name %>">
+                  </div>
+
+                  <div class="team-right">
+                      <img class="img-team" src="<%= match.teams.away.logo %>" alt="<%= match.teams.away.name %>">
+                  </div>
+                </div>
+
+                <div class="match-date-info">
+                  <p class="match-date">
+                    <%= fecha.toLocaleDateString("es-ES", { 
+                          weekday: "short" 
+                    }) %>
+                  </p>
+                  <p>
+                    <%= fecha.toLocaleDateString("es-ES", { 
+                          day: "2-digit", 
+                          month: "2-digit"
+                    }) %>
+                  </p>
+                </div>
+                
+                <div class="match-date-hour">
+                  <p class="match-hour">
+                    <%= fecha.toLocaleTimeString("es-ES", { 
+                          hour: "2-digit", 
+                          minute: "2-digit" 
+                    }) %>
+                  </p>
+                </div>
+                  
+            </div>
+        </li>
+      <% }) %>
+
+    </div>
+</ul>
+<% } %>
