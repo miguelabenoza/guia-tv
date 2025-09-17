@@ -16,11 +16,13 @@
                         </div>
 
                         <div class="news-card-footer">
-                            <picture>
-                                <img class="news-card-footer-logo" src="<%= noticia.logo %>" alt="">
-                            </picture>
-                            <p class="news-card-footer-medio"><%= noticia.medio %></p>
-                            <p class="news-card-footer-time"> - <%= noticia.hace %></p>
+                            <div class="news-card-footer-info">
+                                <picture>
+                                    <img class="news-card-footer-logo" src="<%= noticia.logo %>" alt="">
+                                </picture>
+                                <p class="news-card-footer-medio"><%= noticia.medio %></p>
+                            </div>
+                            <p class="news-card-footer-time"><%= noticia.hace %></p>
                         </div>
                     </article>
                 </a>
