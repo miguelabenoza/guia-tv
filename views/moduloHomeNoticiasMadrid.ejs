@@ -8,25 +8,23 @@
         <% if (noticiasMadrid.length > 0) { %>
             <% noticiasMadrid.forEach(noticia => { %>
                 <a href="/noticia/<%= noticia._id %>">
-                    <article class="grid-news-card tablet">
+                    <article class="grid-news-card">
+                        <div class="news-card-title">
+                            <p><%= noticia.titulo %></p>
+                            <div class="news-card-footer">
+                                <div class="news-card-footer-info">
+                                    <div>
+                                        <img class="news-card-footer-logo" src="<%= noticia.logo %>" alt="">
+                                    </div>
+                                    <p class="news-card-footer-medio"><%= noticia.medio %></p>
+                                </div>
+                                <p class="news-card-footer-time"><%= noticia.hace %></p>
+                            </div>
+                        </div>
+
                         <picture class="news-card-image">
                             <img class="img" src="<%= noticia.img %>" alt="<%= noticia.medio %>">
                         </picture>
-            
-                        <div class="news-card-title">
-                            <p><%= noticia.titulo %></p>
-                            
-                        </div>
-
-                        <div class="news-card-footer">
-                            <div class="news-card-footer-info">
-                                <picture>
-                                    <img class="news-card-footer-logo" src="<%= noticia.logo %>" alt="">
-                                </picture>
-                                <p class="news-card-footer-medio"><%= noticia.medio %></p>
-                            </div>
-                            <p class="news-card-footer-time"><%= noticia.hace %></p>
-                        </div>
                     </article>
                 </a>
                 <% }) %>
