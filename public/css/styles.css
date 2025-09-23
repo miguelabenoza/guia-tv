@@ -363,7 +363,7 @@ h1, h2, h3, h4{
 
 
 /* Últimas noticias */
-/* .card-news {
+.card-news {
     margin-bottom: 2rem;
 }
 
@@ -414,7 +414,7 @@ h1, h2, h3, h4{
 .medium-hour {
     font-family: var(--bold);
     font-size: 14px;
-} */
+}
 
 
 /* Página Noticia */

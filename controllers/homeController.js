@@ -13,6 +13,7 @@ const logos = {
   "ESPN":"/logos/ESPN.png",
   "Dosis Futbolera":"/logos/dosis_futbolera.png",
   "FCBN":"/logos/FCBN.png",
+  "Grada3":"/logos/Grada3.png"
 };
 
 export async function mostrarProximosPartidos(req, res, next) {
@@ -21,15 +22,7 @@ export async function mostrarProximosPartidos(req, res, next) {
     const ultimoPartido = await UltimoPartido.findOne();
 
     const noticiasBarcelonaHoy = await Noticia.find({
-        $expr: {
-            $and: [
-            { $eq: [{ $dayOfMonth: "$fechaHora" }, hoy.getDate()] },
-            { $eq: [{ $month: "$fechaHora" }, hoy.getMonth() + 1] }, // ¡Ojo! getMonth() empieza en 0
-            { $eq: [{ $year: "$fechaHora" }, hoy.getFullYear()] }
-            ]
-        },
         categoria: "Barcelona",
-        medio: { $in: ["Marca", "Sport", "Mundo Deportivo", "Madrid-Barcelona", "ESPN", "Dosis Futbolera","FCBN"] }
         }).sort({ fechaHora: -1 }).limit(9);
 
 
@@ -39,15 +32,7 @@ export async function mostrarProximosPartidos(req, res, next) {
     })); 
 
     const noticiasMadridHoy = await Noticia.find({
-    $expr: {
-        $and: [
-        { $eq: [{ $dayOfMonth: "$fechaHora" }, hoy.getDate()] },
-        { $eq: [{ $month: "$fechaHora" }, hoy.getMonth() + 1] }, // ¡Ojo! getMonth() empieza en 0
-        { $eq: [{ $year: "$fechaHora" }, hoy.getFullYear()] }
-        ]
-    },
-    categoria: "Madrid",
-    medio: { $in: ["Marca", "Sport", "Mundo Deportio","Madrid-Barcelona","ESPN", "Dosis Futbolera"] }
+        categoria: "Madrid",
     }).sort({ fechaHora: -1 }).limit(9);
 
 
@@ -57,15 +42,7 @@ export async function mostrarProximosPartidos(req, res, next) {
     })); 
 
     const noticiasInternacionalHoy = await Noticia.find({
-    $expr: {
-        $and: [
-        { $eq: [{ $dayOfMonth: "$fechaHora" }, hoy.getDate()] },
-        { $eq: [{ $month: "$fechaHora" }, hoy.getMonth() + 1] }, // ¡Ojo! getMonth() empieza en 0
-        { $eq: [{ $year: "$fechaHora" }, hoy.getFullYear()] }
-        ]
-    },
-    categoria: "Internacional",
-    medio: { $in: ["Marca", "Sport", "Mundo Deportivo"] }
+        categoria: "Internacional",
     }).sort({ fechaHora: -1 }).limit(9);
 
 

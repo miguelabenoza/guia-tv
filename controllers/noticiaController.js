@@ -13,6 +13,7 @@ export async function noticia(req,res,next) {
     "ESPN":"/logos/ESPN.png",
     "Dosis Futbolera":"/logos/dosis_futbolera.png",
     "FCBN":"/logos/FCBN.png",
+    "Grada3":"/logos/Grada3.png"
     };
 
     
