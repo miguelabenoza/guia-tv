@@ -11,7 +11,7 @@ const logos = {
   "ESPN":"/logos/ESPN.png",
   "Dosis Futbolera":"/logos/dosis_futbolera.png",
   "FCBN":"/logos/FCBN.png",
-  "Grada3":"/logos/Grada3.png"
+  "Grada3":"/logos/grada3.png"
 };
 
 
