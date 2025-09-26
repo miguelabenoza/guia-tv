@@ -1,12 +1,49 @@
 
+
+
 <% if (fixtures.length > 0) { %>
 <div class="container-news">
   <h1 class="main-title">🎯 Próximos partidos</h1>
 </div>
 <div class="flex">
   
-<!-- Próximoso partidos -->
-    <ul class="container-matches">
+  <ul class="container-matches">
+    <!-- Último partido -->
+     <% if (fixtures_last_match.length > 0) { %>
+        <% fixtures_last_match.forEach(match => { %>
+
+          <li>
+              <div class="card-team-match-finished">
+                <div class="match-teams">
+                  <div class="team-left">
+                      <img class="img-team" src="<%= match.teams.home.logo %>" alt="<%= match.teams.home.name %>">
+                      <% if (match.teams.home.winner == true) { %>
+                        <p class="match-result match-wins"><%= match.goals.home %></p>
+                      <% } else if (match.teams.home.winner == false) { %>
+                        <p class="match-result"><%= match.goals.home %></p>
+                      <% } %>
+                  </div>
+
+                  <div class="match-separator">
+                      <p> - </p>
+                  </div>
+
+                  <div class="team-right">
+                      <% if (match.teams.away.winner == true) { %>
+                        <p class="match-result match-wins"><%= match.goals.away %></p>
+                      <% } else if (match.teams.away.winner == false) { %>
+                        <p class="match-result"><%= match.goals.away %></p>
+                      <% } %>
+                      <img class="img-team" src="<%= match.teams.away.logo %>" alt="<%= match.teams.away.name %>">
+                  </div>
+                </div>
+              </div>
+          </li>
+
+        <% }) %>
+      <% } %>
+
+    <!-- Próximoso partidos -->
       <% fixtures.forEach(match => { 
           const fecha = new Date(match.fixture.date); 
       %>

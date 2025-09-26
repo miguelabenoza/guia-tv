@@ -7,25 +7,28 @@ const logos = {
   "Sport": "/logos/sport.png",
   "AS": "/logos/as.png",
   "Mundo Deportivo": "/logos/md.png",
+  "Madrid-Barcelona": "/logos/madrid_barcelona.png",
+  "ESPN":"/logos/ESPN.png",
+  "Dosis Futbolera":"/logos/dosis_futbolera.png",
+  "FCBN":"/logos/FCBN.png",
+  "Grada3":"/logos/Grada3.png"
 };
 
 
 export async function getAllLastsNews(req, res, next) {
 
-  const noticiasBarcelonaHoy = await Noticia.find({
-  $expr: {
-    $and: [
-      { $eq: [{ $dayOfMonth: "$fechaHora" }, hoy.getDate()] },
-      { $eq: [{ $month: "$fechaHora" }, hoy.getMonth() + 1] }, // ¡Ojo! getMonth() empieza en 0
-      { $eq: [{ $year: "$fechaHora" }, hoy.getFullYear()] }
-    ]
-  },
-  categoria: "Barcelona",
-  medio: { $in: ["Marca", "Sport", "Mundo Deportivo", "Soc Blaugrana"] }
-}).sort({ fechaHora: -1 });
+  const noticiasHoy = await Noticia.find({
+    $expr: {
+      $and: [
+        { $eq: [{ $dayOfMonth: "$fechaHora" }, hoy.getDate()] },
+        { $eq: [{ $month: "$fechaHora" }, hoy.getMonth() + 1] }, // ¡Ojo! getMonth() empieza en 0
+        { $eq: [{ $year: "$fechaHora" }, hoy.getFullYear()] }
+      ]
+    },
+  }).sort({ fechaHora: -1 }).limit(100);
 
 
-  const noticias = noticiasBarcelonaHoy.map(noticia => ({
+  const noticias = noticiasHoy.map(noticia => ({
     ...noticia.toObject(),
     logo: logos[noticia.medio]
   }));

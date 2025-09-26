@@ -23,7 +23,7 @@ export async function mostrarProximosPartidos(req, res, next) {
 
     const noticiasBarcelonaHoy = await Noticia.find({
         categoria: "Barcelona",
-        }).sort({ fechaHora: -1 }).limit(9);
+    }).sort({ fechaHora: -1 }).limit(9);
 
 
     const noticiasBarcelona = noticiasBarcelonaHoy.map(noticia => ({
