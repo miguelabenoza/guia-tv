@@ -5,15 +5,16 @@ import { Noticia } from "../models/Noticia.js";
 const hoy = new Date();
 
 const logos = {
-  "Marca": "/logos/marca.png",
-  "Sport": "/logos/sport.png",
-  "AS": "/logos/as.png",
-  "Mundo Deportivo": "/logos/md.png",
-  "Madrid-Barcelona": "/logos/madrid_barcelona.png",
-  "ESPN":"/logos/ESPN.png",
-  "Dosis Futbolera":"/logos/dosis_futbolera.png",
-  "FCBN":"/logos/FCBN.png",
-  "Grada3":"/logos/grada3.png"
+    "Marca": "/logos/marca.png",
+    "Sport": "/logos/sport.png",
+    "AS": "/logos/as.png",
+    "Mundo Deportivo": "/logos/md.png",
+    "Madrid-Barcelona": "/logos/madrid_barcelona.png",
+    "ESPN":"/logos/ESPN.png",
+    "Dosis Futbolera":"/logos/dosis_futbolera.png",
+    "FCBN":"/logos/FCBN.png",
+    "Grada3":"/logos/grada3.png",
+    "FC Barcelona Oficial":"/logos/barcelona.png"
 };
 
 export async function mostrarProximosPartidos(req, res, next) {
