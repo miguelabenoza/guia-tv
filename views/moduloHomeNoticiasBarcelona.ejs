@@ -11,7 +11,7 @@
                 <a href="/noticia/<%= noticia._id %>">
                     <article class="grid-news-card">
                         <div class="news-card-title">
-                            <p><%= noticia.titulo %></p>
+                            <p><%= noticia.titulo.length > 40 ? noticia.titulo.substring(0, 40) + "..." : noticia.titulo %></p>
                             <div class="news-card-footer">
                                 <div class="news-card-footer-info">
                                     <div>
