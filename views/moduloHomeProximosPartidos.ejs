@@ -18,7 +18,7 @@
                   <div class="team-left">
                       <img class="img-team" src="<%= match.teams.home.logo %>" alt="<%= match.teams.home.name %>">
                       <% if (match.teams.home.winner == true) { %>
-                        <p class="match-result match-wins"><%= match.goals.home %></p>
+                        <p class="match-result"><%= match.goals.home %></p>
                       <% } else if (match.teams.home.winner == false) { %>
                         <p class="match-result"><%= match.goals.home %></p>
                       <% } %>
@@ -30,7 +30,7 @@
 
                   <div class="team-right">
                       <% if (match.teams.away.winner == true) { %>
-                        <p class="match-result match-wins"><%= match.goals.away %></p>
+                        <p class="match-result"><%= match.goals.away %></p>
                       <% } else if (match.teams.away.winner == false) { %>
                         <p class="match-result"><%= match.goals.away %></p>
                       <% } %>
