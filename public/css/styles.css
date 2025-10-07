@@ -1,17 +1,23 @@
 @font-face {
     font-family: 'regular';
-    src: url(/fonts/regular.ttf);
+    src: url(/fonts/imperial-normal.woff2);
 }
 
 @font-face {
     font-family: 'bold';
-    src: url(/fonts/bold.ttf);
+    src: url(/fonts/cheltenham-normal-500.woff2);
+}
+
+@font-face {
+    font-family: 'subtitulo';
+    src: url(/fonts/athletic-slab-normal-700.woff2);
 }
 
 :root {
     /* Fonts */
     --regular: 'regular';
     --bold: 'bold';
+    --subtitulo: 'subtitulo'; 
 
     /* Colors */
     --white: #fff;
@@ -40,6 +46,7 @@ h1, h2, h3, h4{
 
 .news-card-title p {
     line-height: 1.5;
+    font-family: var(--regular);
 }
 
 .flex {
@@ -78,7 +85,8 @@ h1, h2, h3, h4{
 
 .main-title {
     font-family: var(--bold);
-    font-size: 22px;
+    font-size: 30px;
+    line-height: 1.2em;
 }
 
 .sub-title {
@@ -326,7 +334,7 @@ h1, h2, h3, h4{
 /* Home, Noticias */
 .grid-container {
     display: grid;
-    grid-gap: 1rem;
+    grid-gap: 2rem;
     margin-top: 1rem;
 }
 
@@ -507,14 +515,14 @@ h1, h2, h3, h4{
     line-height: 1.5em;
 }
 
-.main-article strong{
-    font-family: var(--bold);
-}
+/* .main-article strong{
+    font-family: var(--strong);
+} */
 
 .main-article h2{
     margin-top: 1rem;
-    font-family: var(--bold);
-    font-size: 18px;
+    font-family: var(--subtitulo);
+    font-size: 22px;
 }
 
 .main-article img{
