@@ -85,7 +85,7 @@ h1, h2, h3, h4{
 
 .main-title {
     font-family: var(--bold);
-    font-size: 30px;
+    font-size: 34px;
     line-height: 1.2em;
 }
 
@@ -511,8 +511,8 @@ h1, h2, h3, h4{
 .main-article p{
     font-family: var(--regular);
     margin-top: 1rem;
-    font-size: 18px;
-    line-height: 1.5em;
+    font-size: 20px;
+    line-height: 1.6em;
 }
 
 /* .main-article strong{
@@ -522,7 +522,7 @@ h1, h2, h3, h4{
 .main-article h2{
     margin-top: 1rem;
     font-family: var(--subtitulo);
-    font-size: 22px;
+    font-size: 26px;
 }
 
 .main-article img{
