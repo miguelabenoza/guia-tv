@@ -378,7 +378,7 @@ h1, h2, h3, h4{
 .news-card-title {
     grid-area: title;
     font-family: var(--bold);
-    font-size: 1rem;
+    font-size: 18px;
     padding: 1rem;
 }
 
@@ -425,9 +425,6 @@ h1, h2, h3, h4{
     padding: 0 .3rem;
 }
 
-.card-title {
-    font-size: ;
-}
 
 .card-name{
     display: flex;
