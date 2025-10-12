@@ -33,6 +33,7 @@
     --grey-100: #b6bcc6;
     --dark: #030712;
     --dark-10:#374151;
+    --background: #fafafa;
 }
 
 * {
@@ -468,14 +469,16 @@ h1, h2, h3, h4{
 /* Página Noticia */
 
 .news-container {
-    background-color: #fff;
+    max-width: 660px;
+    margin: 0 auto;
+    /* background-color: #fff; */
 }
 .menu {
     position: sticky;
     top: 0;
     max-width: 660px;
     padding: 2rem 1rem;
-    background-color: #fff;
+    background-color: var(--background);
     margin: 0 auto;
 }
 
