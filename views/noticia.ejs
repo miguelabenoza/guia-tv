@@ -27,10 +27,17 @@
       </div>
   </div>
     
-    <!-- <h4 class="noticia-sub-title"><%= noticia.subtitulo %></h4> -->
-    <img class="noticia-img"  src="<%= noticia.img %>" alt="<%= noticia.titulo %>">
-      
-    <article class="main-article"><%- noticia.contenido_html %></article>
+
+  <div class="article-container">
+    <% if (noticia.video && noticia.video.trim() !== "") { %>
+      <video type="video/mp4" src="<%= noticia.video %>" controls poster="<%= noticia.img %>"></video>
+      <h4 class="article-container noticia-sub-title"><%= noticia.subtitulo %></h4>
+      <article class="main-article"><%- noticia.contenido_html %></article>
+    <% } else { %>
+      <img class="noticia-img"  src="<%= noticia.img %>" alt="<%= noticia.titulo %>">
+      <article class="main-article"><%- noticia.contenido_html %></article>
+    <% } %>
+  </div>
 
 </div>
 

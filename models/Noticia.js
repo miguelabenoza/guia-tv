@@ -4,6 +4,7 @@ const noticiasSchema = Schema({
   titulo: String,
   subtitulo: String,
   img: String,
+  video: String,
   redactor: String,
   fecha: Date,
   fechaHora: Date,
