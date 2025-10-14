@@ -9,17 +9,17 @@
 <%- include('footer.ejs') %> 
 
 <script>
-  // Guardar la posición antes de salir
-  window.addEventListener("beforeunload", () => {
-    localStorage.setItem("scrollPos", window.scrollY);
+  // Guardar la posición antes de salir de la página
+  window.addEventListener("pagehide", () => {
+    sessionStorage.setItem("scrollPos", window.scrollY);
   });
 
   // Restaurar la posición al volver
-  window.addEventListener("load", () => {
-    const scrollPos = localStorage.getItem("scrollPos");
+  window.addEventListener("pageshow", (event) => {
+    const scrollPos = sessionStorage.getItem("scrollPos");
     if (scrollPos) {
+      // Si la página viene del caché (bfcache) o fue recargada
       window.scrollTo(0, parseInt(scrollPos));
-      localStorage.removeItem("scrollPos"); // Limpia después de usar
     }
   });
 </script>
