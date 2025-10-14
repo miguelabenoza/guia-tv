@@ -7,3 +7,19 @@
 
 
 <%- include('footer.ejs') %> 
+
+<script>
+  // Guardar la posición antes de salir
+  window.addEventListener("beforeunload", () => {
+    localStorage.setItem("scrollPos", window.scrollY);
+  });
+
+  // Restaurar la posición al volver
+  window.addEventListener("load", () => {
+    const scrollPos = localStorage.getItem("scrollPos");
+    if (scrollPos) {
+      window.scrollTo(0, parseInt(scrollPos));
+      localStorage.removeItem("scrollPos"); // Limpia después de usar
+    }
+  });
+</script>
