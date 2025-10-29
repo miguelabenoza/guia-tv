@@ -14,7 +14,8 @@ const logos = {
     "Dosis Futbolera":"/logos/dosis_futbolera.png",
     "FCBN":"/logos/FCBN.png",
     "Grada3":"/logos/grada3.png",
-    "FC Barcelona Oficial":"/logos/barcelona.png"
+    "FC Barcelona Oficial":"/logos/barcelona.png",
+    "El Chiringuito":"/logos/elChiringuito.png"
 };
 
 export async function mostrarProximosPartidos(req, res, next) {
@@ -22,9 +23,19 @@ export async function mostrarProximosPartidos(req, res, next) {
     const partidos = await ProximosPartidos.findOne().sort({ _id: -1 });
     const ultimoPartido = await UltimoPartido.findOne();
 
+    const elChiringuito = await Noticia.find({
+        categoria: "chiringuito",
+    }).sort({ fechaHora: -1 }).limit(4);
+
+    const noticiasChiringuito = elChiringuito.map(noticia => ({
+        ...noticia.toObject(),
+        logo: logos[noticia.medio]
+    })); 
+
+
     const noticiasBarcelonaHoy = await Noticia.find({
         categoria: "Barcelona",
-    }).sort({ fechaHora: -1 }).limit(8);
+    }).sort({ fechaHora: -1 }).limit(5);
 
 
     const noticiasBarcelona = noticiasBarcelonaHoy.map(noticia => ({
@@ -34,7 +45,7 @@ export async function mostrarProximosPartidos(req, res, next) {
 
     const noticiasMadridHoy = await Noticia.find({
         categoria: "Madrid",
-    }).sort({ fechaHora: -1 }).limit(8);
+    }).sort({ fechaHora: -1 }).limit(5);
 
 
     const noticiasMadrid = noticiasMadridHoy.map(noticia => ({
@@ -44,7 +55,7 @@ export async function mostrarProximosPartidos(req, res, next) {
 
     const noticiasInternacionalHoy = await Noticia.find({
         categoria: "Internacional",
-    }).sort({ fechaHora: -1 }).limit(8);
+    }).sort({ fechaHora: -1 }).limit(5);
 
 
     const noticiasInternacional = noticiasInternacionalHoy.map(noticia => ({
@@ -52,9 +63,10 @@ export async function mostrarProximosPartidos(req, res, next) {
         logo: logos[noticia.medio]
     }));
 
-    res.render("home", { 
+    res.render("homeTailwind", { 
         fixtures: partidos.response,
         fixtures_last_match: ultimoPartido.response,
+        noticiasChiringuito,
         noticiasBarcelona,
         noticiasMadrid,
         noticiasInternacional

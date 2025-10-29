@@ -14,7 +14,8 @@ export async function noticia(req,res,next) {
         "Dosis Futbolera":"/logos/dosis_futbolera.png",
         "FCBN":"/logos/FCBN.png",
         "Grada3":"/logos/grada3.png",
-        "FC Barcelona Oficial":"/logos/barcelona.png"
+        "FC Barcelona Oficial":"/logos/barcelona.png",
+        "El Chiringuito":"/logos/elChiringuito.png"
     };
 
     
@@ -24,5 +25,5 @@ export async function noticia(req,res,next) {
     if (noticia) {
         noticia.logo = logos[noticia.medio];
     }
-    res.render("noticia", {noticia} );
+    res.render("noticiaTailwind", {noticia} );
 };

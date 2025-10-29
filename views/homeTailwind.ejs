@@ -1,0 +1,495 @@
+<%- include('header.ejs') %>
+
+<main>
+    <div class="grid p-4 mb-8 border-b-gray-400 md:gap-6 md:p-10 md:grid-cols-12 lg:grid-cols-12 lg:p-8 lg:gap-6 max-w-7xl m-auto">
+
+        <!-- Barcelona -->
+        <div class="flex mt-8 pl-2 mb-3 md:mb-0 lg:mb-0 place-items-center md:col-span-12">
+            <img class="w-10" src="/logos/barcelona.png" alt="FC Barcelona">
+            <h1 class="ml-3 font-bold text-base">FC Barcelona</h1>
+        </div>
+
+        <% if (noticiasBarcelona.length > 0) { %>
+            <% noticiasBarcelona.forEach((noticia, index) => { %>
+                <% if (index === 0) { %>
+                    <!-- Código cuando element es igual al primer elemento (1) -->
+                    <a href="/noticia/<%= noticia._id %>" class="grid-cols-1 md:col-span-12">
+                        <article class="grid pb-8 md:pb-0 border-b-gray-400 md:border md:border-gray-200 md:grid-cols-2 md:grid-rows-1 md:items-center md:rounded-lg cursor-pointer  ">
+                            <div class="grid">
+                                <picture>
+                                    <img src="<%= noticia.img %>" alt="<%= noticia.medio %>" class="rounded-lg aspect-video object-cover md:aspect-square md:object-cover md:col-start-1 md:rounded-tl-lg md:rounded-bl-lg md:rounded-tr-none md:rounded-br-none lg:aspect-video lg:object-cover">
+                                </picture>
+                            </div>
+                            <div class="md:col-start-2 pl-2">
+                                <h1 class="mt-3 font-bold md:col-span-2 md:pl-4 md:pr-4 md:mb-4 md:text-xl">
+                                    <% if (noticia.video) { %>
+                                        <span class=" text-amber-50 bg-indigo-500 pl-2 pr-2 inline-flex text-xs">video</span> 
+                                    <% } %>
+                                    <%= noticia.titulo %>
+                                </h1>
+                                <h4 class="hidden text-sm pl-2 pr-2 md:pl-4 md:pr-4 md:mb-4 md:block lg:text-base"><%= noticia.subtitulo %></h4>
+                                
+
+                                <div class="flex  mt-4 md:pl-4">
+                                    <picture>
+                                        <img class="w-5" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
+                                    </picture>
+                                    <span class="text-xs ml-2 md:ml-2"><%= noticia.medio %></span>
+                                    <span class="text-xs ml-1 md:ml-1">·</span>
+                                    <span class="text-xs ml-1 md:ml-1 text-gray-400"><%= noticia.hace %></span>
+                                </div>
+                            </div>
+                        </article>
+                    </a>
+
+                <% } else if ([1, 2, 3, 4].includes(index)) { %>
+                    <!-- Código cuando element es igual a 2, 3 o 4 -->
+                    <a href="/noticia/<%= noticia._id %>" class="grid md:col-span-6 lg:col-span-3">
+                        <article class="grid grid-cols-3 pt-4 pb-4 md:pt-0 md:pb-0 md:border md:border-gray-200 md:grid-cols-1 md:rounded-lg cursor-pointer  ">
+                            <div class="grid md:place-items-start">
+                                <picture>
+                                    <img src="<%= noticia.img %>" alt="<%= noticia.medio %>" class="rounded-md md:rounded-bl-none md:rounded-br-none col-start-1 aspect-square object-cover md:aspect-video md:object-cover md:place-content-start md:rounded-tl-lg md:rounded-tr-lg">
+                                </picture>
+                            </div>
+                            <div class="grid col-span-2 content-between p-2 md:place-content-start md:content-between md:p-4">
+                                <h1 class="font-bold text-xs md:text-sm md:pl-0 md:pr-0 md:mb-6">
+                                    <% if (noticia.video) { %>
+                                        <span class=" text-amber-50 bg-indigo-500 pl-2 pr-2 inline-flex text-xs">video</span> 
+                                    <% } %>
+                                    <%= noticia.titulo %>
+                                </h1>
+                               
+                                
+                                <div class="flex items-center md:pl-0">
+                                    <picture>
+                                        <img class="w-5" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
+                                    </picture>
+                                    <span class="hidden md:block text-xs ml-2 md:ml-2"><%= noticia.medio %></span>
+                                    <span class="hidden md:block text-xs ml-1 md:ml-1">·</span>
+                                    <span class="text-xs ml-1 md:ml-1 text-gray-400"><%= noticia.hace %></span>
+                                </div>
+                            </div>
+                        </article>
+                    </a>
+                <% } else if ([4, 5].includes(index)) { %>
+                    <!-- <a href="/noticia/<%= noticia._id %>" class="grid md:col-span-6 lg:col-span-6">
+                        <article class="grid grid-cols-3 pt-4 pb-4 md:pt-0 md:pb-0 border-b-gray-400 md:border md:border-gray-200 md:grid-cols-1 md:rounded-lg cursor-pointer   lg:grid-cols-2 lg:items-center">
+                            <div class="grid place-items-center md:place-items-start">
+                                <picture>
+                                    <img src="<%= noticia.img %>" alt="<%= noticia.medio %>" class="rounded-md md:rounded-bl-none md:rounded-br-none col-start-1 aspect-square object-cover md:aspect-video md:object-cover md:place-content-start md:rounded-tl-lg md:rounded-tr-lg lg:col-start-1 lg:aspect-square lg:rounded-bl-lg lg:rounded-br-none lg:rounded-tr-none">
+                                </picture>
+                            </div>
+                            <div class="col-span-2 grid content-between p-2 md:place-content-start md:content-between md:p-4 lg:col-span-2 lg:col-start-2 lg:items-center">
+                                <h1 class="font-bold text-xs md:text-sm md:pl-0 md:pr-0 md:mb-6 lg:text-base"><%= noticia.titulo %></h1>
+                                <h4 class="hidden text-xs pl-2 pr-2 lg:block lg:pr-0 lg:pl-0 lg:mb-6 lg:text-sm"><%= noticia.subtitulo %></h4>
+
+                                <div class="flex items-center md:pl-0">
+                                    <picture>
+                                        <img class="w-5" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
+                                    </picture>
+                                    <span class="hidden md:block text-xs ml-2 md:ml-2"><%= noticia.medio %></span>
+                                    <span class="hidden md:block text-xs ml-1 md:ml-1">·</span>
+                                    <span class="text-xs ml-1 md:ml-1 text-gray-400"><%= noticia.hace %></span>
+                                </div>
+                            </div>
+                        </article>
+                    </a>
+                 -->
+                <% } else if ([6, 7, 8, 9].includes(index)) { %>
+                    <!-- <a href="/noticia/<%= noticia._id %>" class="grid md:col-span-6 lg:col-span-3">
+                        <article class="grid grid-cols-3 pt-4 pb-4 md:pt-0 md:pb-0 border-b-gray-400 md:border md:border-gray-200 md:grid-cols-1 md:rounded-lg cursor-pointer  ">
+                            <div class="grid place-items-center md:place-items-start">
+                                <picture>
+                                    <img src="<%= noticia.img %>" alt="<%= noticia.medio %>" class="rounded-md md:rounded-bl-none md:rounded-br-none col-start-1 aspect-square object-cover md:aspect-video md:object-cover md:place-content-start md:rounded-tl-lg md:rounded-tr-lg">
+                                </picture>
+                            </div>
+                            <div class="col-span-2 grid content-between p-2 md:place-content-start md:content-between md:p-4">
+                                <h1 class="font-bold text-xs md:text-sm md:pl-0 md:pr-0 md:mb-6"><%= noticia.titulo %></h1>
+                                
+                                <div class="flex items-center md:pl-0">
+                                    <picture>
+                                        <img class="w-5" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
+                                    </picture>
+                                    <span class="hidden md:block text-xs ml-2 md:ml-2"><%= noticia.medio %></span>
+                                    <span class="hidden md:block text-xs ml-1 md:ml-1">·</span>
+                                    <span class="text-xs ml-1 md:ml-1 text-gray-400"><%= noticia.hace %></span>
+                                </div>
+                            </div>
+                        </article>
+                    </a> -->
+
+                <% } else { %>
+                    <!-- <a href="/noticia/<%= noticia._id %>" class="grid md:col-span-4">
+                        <article class="grid grid-cols-3 pt-4 pb-4 md:pt-0 md:pb-0 border-b-gray-400 md:border md:border-gray-200 md:grid-cols-1 md:rounded-lg cursor-pointer  ">
+                            <div class="grid place-items-center md:place-items-start">
+                                <picture>
+                                    <img src="<%= noticia.img %>" alt="<%= noticia.medio %>" class="rounded-md md:rounded-bl-none md:rounded-br-none col-start-1 aspect-square object-cover md:aspect-video md:object-cover md:place-content-start md:rounded-tl-lg md:rounded-tr-lg">
+                                </picture>
+                            </div>
+                            <div class="col-span-2 grid content-between p-2 md:place-content-start md:content-between md:p-4">
+                                <h1 class="font-bold text-xs md:text-sm md:pl-0 md:pr-0 md:mb-6"><%= noticia.titulo %></h1>
+                                
+                                <div class="flex items-center md:pl-0">
+                                    <picture>
+                                        <img class="w-5" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
+                                    </picture>
+                                    <span class="hidden md:block text-xs ml-2 md:ml-2"><%= noticia.medio %></span>
+                                    <span class="hidden md:block text-xs ml-1 md:ml-1">·</span>
+                                    <span class="text-xs ml-1 md:ml-1 text-gray-400"><%= noticia.hace %></span>
+                                </div>
+                            </div>
+                        </article>
+                    </a> -->
+                <% } %>
+
+            <% }) %>
+        <% } else { %>
+            <p>No hay noticias disponibles.</p>
+        <% } %>
+        
+        
+        <!-- Real Madrid -->
+        <div class="flex mt-8 pl-2 mb-3 md:mb-0 lg:mb-0 place-items-center md:col-span-12">
+            <img class="w-10" src="/logos/madrid.png" alt="Real Madrid">
+            <h1 class="ml-3 font-bold text-base">Real Madrid</h1>
+        </div>
+
+        <% if (noticiasMadrid.length > 0) { %>
+            <% noticiasMadrid.forEach((noticia, index) => { %>
+                <% if (index === 0) { %>
+                    <!-- Código cuando element es igual al primer elemento (1) -->
+                    <a href="/noticia/<%= noticia._id %>" class="grid-cols-1 md:col-span-12">
+                        <article class="grid pb-8 md:pb-0 border-b-gray-400 md:border md:border-gray-200 md:grid-cols-2 md:grid-rows-1 md:items-center md:rounded-lg cursor-pointer  ">
+                            <div class="grid">
+                                <picture>
+                                    <img src="<%= noticia.img %>" alt="<%= noticia.medio %>" class="rounded-lg aspect-video object-cover md:aspect-square md:object-cover md:col-start-1 md:rounded-tl-lg md:rounded-bl-lg md:rounded-tr-none md:rounded-br-none lg:aspect-video lg:object-cover">
+                                </picture>
+                            </div>
+                            <div class="md:col-start-2 pl-2">
+                                <h1 class="mt-3 font-bold md:col-span-2 md:pl-4 md:pr-4 md:mb-4 md:text-xl">
+                                    <% if (noticia.video) { %>
+                                        <span class=" text-amber-50 bg-indigo-500 pl-2 pr-2 inline-flex text-xs">video</span> 
+                                    <% } %>
+                                    <%= noticia.titulo %>
+                                </h1>
+                                <h4 class="hidden text-sm pl-2 pr-2 md:pl-4 md:pr-4 md:mb-4 md:block lg:text-base"><%= noticia.subtitulo %></h4>
+                                
+
+                                <div class="flex items-center mt-4 md:pl-4">
+                                    <picture>
+                                        <img class="w-5" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
+                                    </picture>
+                                    <span class="text-xs ml-2 md:ml-2"><%= noticia.medio %></span>
+                                    <span class="text-xs ml-1 md:ml-1">·</span>
+                                    <span class="text-xs ml-1 md:ml-1 text-gray-400"><%= noticia.hace %></span>
+                                </div>
+                            </div>
+                        </article>
+                    </a>
+
+                <% } else if ([1, 2, 3, 4].includes(index)) { %>
+                    <!-- Código cuando element es igual a 2, 3 o 4 -->
+                    <a href="/noticia/<%= noticia._id %>" class="grid md:col-span-6 lg:col-span-3">
+                        <article class="grid grid-cols-3 pt-4 pb-4 md:pt-0 md:pb-0 border-b-gray-400 md:border md:border-gray-200 md:grid-cols-1 md:rounded-lg cursor-pointer  ">
+                            <div class="grid md:place-items-start">
+                                <picture>
+                                    <img src="<%= noticia.img %>" alt="<%= noticia.medio %>" class="rounded-md md:rounded-bl-none md:rounded-br-none col-start-1 aspect-square object-cover md:aspect-video md:object-cover md:place-content-start md:rounded-tl-lg md:rounded-tr-lg">
+                                </picture>
+                            </div>
+                            <div class="col-span-2 grid content-between p-2 md:place-content-start md:content-between md:p-4">
+                                <h1 class="font-bold text-xs md:text-sm md:pl-0 md:pr-0 md:mb-6">
+                                    <% if (noticia.video) { %>
+                                        <span class=" text-amber-50 bg-indigo-500 pl-2 pr-2 inline-flex text-xs">video</span> 
+                                    <% } %>
+                                    <%= noticia.titulo %>
+                                </h1>
+                                
+                                <div class="flex items-center md:pl-0">
+                                    <picture>
+                                        <img class="w-5" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
+                                    </picture>
+                                    <span class="hidden md:block text-xs ml-2 md:ml-2"><%= noticia.medio %></span>
+                                    <span class="hidden md:block text-xs ml-1 md:ml-1">·</span>
+                                    <span class="text-xs ml-1 md:ml-1 text-gray-400"><%= noticia.hace %></span>
+                                </div>
+                            </div>
+                        </article>
+                    </a>
+                <% } else if ([4, 5].includes(index)) { %>
+                    <!-- <a href="/noticia/<%= noticia._id %>" class="grid md:col-span-6 lg:col-span-6">
+                        <article class="grid grid-cols-3 pt-4 pb-4 md:pt-0 md:pb-0 border-b-gray-400 md:border md:border-gray-200 md:grid-cols-1 md:rounded-lg cursor-pointer   lg:grid-cols-2 lg:items-center">
+                            <div class="grid place-items-center md:place-items-start">
+                                <picture>
+                                    <img src="<%= noticia.img %>" alt="<%= noticia.medio %>" class="rounded-md md:rounded-bl-none md:rounded-br-none col-start-1 aspect-square object-cover md:aspect-video md:object-cover md:place-content-start md:rounded-tl-lg md:rounded-tr-lg lg:col-start-1 lg:aspect-square lg:rounded-bl-lg lg:rounded-br-none lg:rounded-tr-none">
+                                </picture>
+                            </div>
+                            <div class="col-span-2 grid content-between p-2 md:place-content-start md:content-between md:p-4 lg:col-span-2 lg:col-start-2 lg:items-center">
+                                <h1 class="font-bold text-xs md:text-sm md:pl-0 md:pr-0 md:mb-6 lg:text-base"><%= noticia.titulo %></h1>
+                                <h4 class="hidden text-xs pl-2 pr-2 lg:block lg:pr-0 lg:pl-0 lg:mb-6 lg:text-sm"><%= noticia.subtitulo %></h4>
+
+                                <div class="flex items-center md:pl-0">
+                                    <picture>
+                                        <img class="w-5" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
+                                    </picture>
+                                    <span class="hidden md:block text-xs ml-2 md:ml-2"><%= noticia.medio %></span>
+                                    <span class="hidden md:block text-xs ml-1 md:ml-1">·</span>
+                                    <span class="text-xs ml-1 md:ml-1 text-gray-400"><%= noticia.hace %></span>
+                                </div>
+                            </div>
+                        </article>
+                    </a>
+                 -->
+                <% } else if ([6, 7, 8, 9].includes(index)) { %>
+                    <!-- <a href="/noticia/<%= noticia._id %>" class="grid md:col-span-6 lg:col-span-3">
+                        <article class="grid grid-cols-3 pt-4 pb-4 md:pt-0 md:pb-0 border-b-gray-400 md:border md:border-gray-200 md:grid-cols-1 md:rounded-lg cursor-pointer  ">
+                            <div class="grid place-items-center md:place-items-start">
+                                <picture>
+                                    <img src="<%= noticia.img %>" alt="<%= noticia.medio %>" class="rounded-md md:rounded-bl-none md:rounded-br-none col-start-1 aspect-square object-cover md:aspect-video md:object-cover md:place-content-start md:rounded-tl-lg md:rounded-tr-lg">
+                                </picture>
+                            </div>
+                            <div class="col-span-2 grid content-between p-2 md:place-content-start md:content-between md:p-4">
+                                <h1 class="font-bold text-xs md:text-sm md:pl-0 md:pr-0 md:mb-6"><%= noticia.titulo %></h1>
+                                
+                                <div class="flex items-center md:pl-0">
+                                    <picture>
+                                        <img class="w-5" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
+                                    </picture>
+                                    <span class="hidden md:block text-xs ml-2 md:ml-2"><%= noticia.medio %></span>
+                                    <span class="hidden md:block text-xs ml-1 md:ml-1">·</span>
+                                    <span class="text-xs ml-1 md:ml-1 text-gray-400"><%= noticia.hace %></span>
+                                </div>
+                            </div>
+                        </article>
+                    </a> -->
+
+                <% } else { %>
+                    <!-- <a href="/noticia/<%= noticia._id %>" class="grid md:col-span-4">
+                        <article class="grid grid-cols-3 pt-4 pb-4 md:pt-0 md:pb-0 border-b-gray-400 md:border md:border-gray-200 md:grid-cols-1 md:rounded-lg cursor-pointer  ">
+                            <div class="grid place-items-center md:place-items-start">
+                                <picture>
+                                    <img src="<%= noticia.img %>" alt="<%= noticia.medio %>" class="rounded-md md:rounded-bl-none md:rounded-br-none col-start-1 aspect-square object-cover md:aspect-video md:object-cover md:place-content-start md:rounded-tl-lg md:rounded-tr-lg">
+                                </picture>
+                            </div>
+                            <div class="col-span-2 grid content-between p-2 md:place-content-start md:content-between md:p-4">
+                                <h1 class="font-bold text-xs md:text-sm md:pl-0 md:pr-0 md:mb-6"><%= noticia.titulo %></h1>
+                                
+                                <div class="flex items-center md:pl-0">
+                                    <picture>
+                                        <img class="w-5" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
+                                    </picture>
+                                    <span class="hidden md:block text-xs ml-2 md:ml-2"><%= noticia.medio %></span>
+                                    <span class="hidden md:block text-xs ml-1 md:ml-1">·</span>
+                                    <span class="text-xs ml-1 md:ml-1 text-gray-400"><%= noticia.hace %></span>
+                                </div>
+                            </div>
+                        </article>
+                    </a> -->
+                <% } %>
+
+            <% }) %>
+        <% } else { %>
+            <p>No hay noticias disponibles.</p>
+        <% } %>
+
+
+
+        <!-- Internacional -->
+        <div class="flex mb-3 md:mb-0 lg:mb-0 place-items-center md:col-span-12 mt-8 pl-2">
+            <h1 class="font-bold text-base">🌎 Fútbol Internacional</h1>
+        </div>
+
+        <% if (noticiasInternacional.length > 0) { %>
+            <% noticiasInternacional.forEach((noticia, index) => { %>
+                <% if (index === 0) { %>
+                    <!-- Código cuando element es igual al primer elemento (1) -->
+                    <a href="/noticia/<%= noticia._id %>" class="grid-cols-1 md:col-span-12">
+                        <article class="grid pb-8 md:pb-0 border-b-gray-400 md:border md:border-gray-200 md:grid-cols-2 md:grid-rows-1 md:items-center md:rounded-lg cursor-pointer  ">
+                            <div class="grid">
+                                <picture>
+                                    <img src="<%= noticia.img %>" alt="<%= noticia.medio %>" class="rounded-lg aspect-video object-cover md:aspect-square md:object-cover md:col-start-1 md:rounded-tl-lg md:rounded-bl-lg md:rounded-tr-none md:rounded-br-none lg:aspect-video lg:object-cover">
+                                </picture>
+                            </div>
+                            <div class="md:col-start-2 pl-2">
+                                <h1 class="mt-3 font-bold md:col-span-2 md:pl-4 md:pr-4 md:mb-4 md:text-xl">
+                                    <% if (noticia.video) { %>
+                                        <span class=" text-amber-50 bg-indigo-500 pl-2 pr-2 inline-flex text-xs">video</span> 
+                                    <% } %>
+                                    <%= noticia.titulo %>
+                                </h1>
+                                <h4 class="hidden text-sm pl-2 pr-2 md:pl-4 md:pr-4 md:mb-4 md:block lg:text-base"><%= noticia.subtitulo %></h4>
+                                
+                                <div class="flex items-center mt-4 md:pl-4">
+                                    <picture>
+                                        <img class="w-5" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
+                                    </picture>
+                                    <span class="text-xs ml-2 md:ml-2"><%= noticia.medio %></span>
+                                    <span class="text-xs ml-1 md:ml-1">·</span>
+                                    <span class="text-xs ml-1 md:ml-1 text-gray-400"><%= noticia.hace %></span>
+                                </div>
+                            </div>
+                        </article>
+                    </a>
+
+                <% } else if ([1, 2, 3, 4].includes(index)) { %>
+                    <!-- Código cuando element es igual a 2, 3 o 4 -->
+                    <a href="/noticia/<%= noticia._id %>" class="grid md:col-span-6 lg:col-span-3">
+                        <article class="grid grid-cols-3 pt-4 pb-4 md:pt-0 md:pb-0 border-b-gray-400 md:border md:border-gray-200 md:grid-cols-1 md:rounded-lg cursor-pointer  ">
+                            <div class="grid md:place-items-start">
+                                <picture>
+                                    <img src="<%= noticia.img %>" alt="<%= noticia.medio %>" class="rounded-md md:rounded-bl-none md:rounded-br-none col-start-1 aspect-square object-cover md:aspect-video md:object-cover md:place-content-start md:rounded-tl-lg md:rounded-tr-lg">
+                                </picture>
+                            </div>
+                            <div class="col-span-2 grid content-between p-2 md:place-content-start md:content-between md:p-4">
+                                <h1 class="font-bold text-xs md:text-sm md:pl-0 md:pr-0 md:mb-6">
+                                    <% if (noticia.video) { %>
+                                        <span class=" text-amber-50 bg-indigo-500 pl-2 pr-2 inline-flex text-xs">video</span> 
+                                    <% } %>
+                                    <%= noticia.titulo %>
+                                </h1>
+                                
+                                <div class="flex items-center md:pl-0">
+                                    <picture>
+                                        <img class="w-5" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
+                                    </picture>
+                                    <span class="hidden md:block text-xs ml-2 md:ml-2"><%= noticia.medio %></span>
+                                    <span class="hidden md:block text-xs ml-1 md:ml-1">·</span>
+                                    <span class="text-xs ml-1 md:ml-1 text-gray-400"><%= noticia.hace %></span>
+                                </div>
+                            </div>
+                        </article>
+                    </a>
+                <% } else if ([4, 5].includes(index)) { %>
+                    <!-- <a href="/noticia/<%= noticia._id %>" class="grid md:col-span-6 lg:col-span-6">
+                        <article class="grid grid-cols-3 pt-4 pb-4 md:pt-0 md:pb-0 border-b-gray-400 md:border md:border-gray-200 md:grid-cols-1 md:rounded-lg cursor-pointer   lg:grid-cols-2 lg:items-center">
+                            <div class="grid place-items-center md:place-items-start">
+                                <picture>
+                                    <img src="<%= noticia.img %>" alt="<%= noticia.medio %>" class="rounded-md md:rounded-bl-none md:rounded-br-none col-start-1 aspect-square object-cover md:aspect-video md:object-cover md:place-content-start md:rounded-tl-lg md:rounded-tr-lg lg:col-start-1 lg:aspect-square lg:rounded-bl-lg lg:rounded-br-none lg:rounded-tr-none">
+                                </picture>
+                            </div>
+                            <div class="col-span-2 grid content-between p-2 md:place-content-start md:content-between md:p-4 lg:col-span-2 lg:col-start-2 lg:items-center">
+                                <h1 class="font-bold text-xs md:text-sm md:pl-0 md:pr-0 md:mb-6 lg:text-base"><%= noticia.titulo %></h1>
+                                <h4 class="hidden text-xs pl-2 pr-2 lg:block lg:pr-0 lg:pl-0 lg:mb-6 lg:text-sm"><%= noticia.subtitulo %></h4>
+
+                                <div class="flex items-center md:pl-0">
+                                    <picture>
+                                        <img class="w-5" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
+                                    </picture>
+                                    <span class="hidden md:block text-xs ml-2 md:ml-2"><%= noticia.medio %></span>
+                                    <span class="hidden md:block text-xs ml-1 md:ml-1">·</span>
+                                    <span class="text-xs ml-1 md:ml-1 text-gray-400"><%= noticia.hace %></span>
+                                </div>
+                            </div>
+                        </article>
+                    </a>
+                 -->
+                <% } else if ([6, 7, 8, 9].includes(index)) { %>
+                    <!-- <a href="/noticia/<%= noticia._id %>" class="grid md:col-span-6 lg:col-span-3">
+                        <article class="grid grid-cols-3 pt-4 pb-4 md:pt-0 md:pb-0 border-b-gray-400 md:border md:border-gray-200 md:grid-cols-1 md:rounded-lg cursor-pointer  ">
+                            <div class="grid place-items-center md:place-items-start">
+                                <picture>
+                                    <img src="<%= noticia.img %>" alt="<%= noticia.medio %>" class="rounded-md md:rounded-bl-none md:rounded-br-none col-start-1 aspect-square object-cover md:aspect-video md:object-cover md:place-content-start md:rounded-tl-lg md:rounded-tr-lg">
+                                </picture>
+                            </div>
+                            <div class="col-span-2 grid content-between p-2 md:place-content-start md:content-between md:p-4">
+                                <h1 class="font-bold text-xs md:text-sm md:pl-0 md:pr-0 md:mb-6"><%= noticia.titulo %></h1>
+                                
+                                <div class="flex items-center md:pl-0">
+                                    <picture>
+                                        <img class="w-5" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
+                                    </picture>
+                                    <span class="hidden md:block text-xs ml-2 md:ml-2"><%= noticia.medio %></span>
+                                    <span class="hidden md:block text-xs ml-1 md:ml-1">·</span>
+                                    <span class="text-xs ml-1 md:ml-1 text-gray-400"><%= noticia.hace %></span>
+                                </div>
+                            </div>
+                        </article>
+                    </a> -->
+
+                <% } else { %>
+                    <!-- <a href="/noticia/<%= noticia._id %>" class="grid md:col-span-4">
+                        <article class="grid grid-cols-3 pt-4 pb-4 md:pt-0 md:pb-0 border-b-gray-400 md:border md:border-gray-200 md:grid-cols-1 md:rounded-lg cursor-pointer  ">
+                            <div class="grid place-items-center md:place-items-start">
+                                <picture>
+                                    <img src="<%= noticia.img %>" alt="<%= noticia.medio %>" class="rounded-md md:rounded-bl-none md:rounded-br-none col-start-1 aspect-square object-cover md:aspect-video md:object-cover md:place-content-start md:rounded-tl-lg md:rounded-tr-lg">
+                                </picture>
+                            </div>
+                            <div class="col-span-2 grid content-between p-2 md:place-content-start md:content-between md:p-4">
+                                <h1 class="font-bold text-xs md:text-sm md:pl-0 md:pr-0 md:mb-6"><%= noticia.titulo %></h1>
+                                
+                                <div class="flex items-center md:pl-0">
+                                    <picture>
+                                        <img class="w-5" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
+                                    </picture>
+                                    <span class="hidden md:block text-xs ml-2 md:ml-2"><%= noticia.medio %></span>
+                                    <span class="hidden md:block text-xs ml-1 md:ml-1">·</span>
+                                    <span class="text-xs ml-1 md:ml-1 text-gray-400"><%= noticia.hace %></span>
+                                </div>
+                            </div>
+                        </article>
+                    </a> -->
+                <% } %>
+
+            <% }) %>
+        <% } else { %>
+            <p>No hay noticias disponibles.</p>
+        <% } %>
+        
+        <!-- El Chiringuito de jugones -->
+        <% if (noticiasChiringuito.length > 0) { %>
+        <div class="flex mt-8 pl-2 md:mb-0 lg:mb-0 place-items-center md:col-span-12">
+            <img class="w-10" src="/logos/elChiringuito.png" alt="Chiringuito de jugones">
+            <h1 class="ml-3 font-bold text-base">El Chiringuito de jugones</h1>
+        </div>
+        
+        <% noticiasChiringuito.forEach(noticia => { %>
+            <a href="/noticia/<%= noticia._id %>" class="grid md:col-span-6 lg:col-span-3">
+                <article class="grid grid-cols-3 pt-4 pb-4 md:pt-0 md:pb-0 border-b-gray-400 md:border md:border-gray-200 md:grid-cols-1 md:rounded-lg cursor-pointer">
+                    <div class="grid md:place-items-start">
+                        <picture>
+                            <img src="<%= noticia.img %>" alt="<%= noticia.medio %>" class="rounded-md md:rounded-bl-none md:rounded-br-none col-start-1 aspect-square object-cover md:aspect-video md:object-cover md:place-content-start md:rounded-tl-lg md:rounded-tr-lg">
+                        </picture>
+                    </div>
+                    <div class="grid col-span-2 content-between p-2 md:place-content-start md:content-between md:p-4">
+                        <h1 class="font-bold text-xs md:text-sm md:pl-0 md:pr-0 md:mb-6">
+                            <% if (noticia.video) { %>
+                                <span class="text-amber-50 bg-indigo-500 pl-2 pr-2 inline-flex text-xs">video</span> 
+                            <% } %>
+                            <%= noticia.titulo %>
+                        </h1>
+                        <div class="flex items-center md:pl-0">
+                            <picture>
+                                <img class="w-5" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
+                            </picture>
+                            <span class="hidden md:block text-xs ml-2 md:ml-2"><%= noticia.medio %></span>
+                            <span class="hidden md:block text-xs ml-1 md:ml-1">·</span>
+                            <span class="text-xs ml-1 md:ml-1 text-gray-400"><%= noticia.hace %></span>
+                        </div>
+                    </div>
+                </article>
+            </a>
+        <% }) %>
+        <% } %>
+    </div>
+
+
+
+</main>
+
+
+<%- include('footer.ejs') %> 
+
+<script>
+  // Guardar la posición antes de salir de la página
+  window.addEventListener("pagehide", () => {
+    sessionStorage.setItem("scrollPos", window.scrollY);
+  });
+
+  // Restaurar la posición al volver
+  window.addEventListener("pageshow", (event) => {
+    const scrollPos = sessionStorage.getItem("scrollPos");
+    if (scrollPos) {
+      // Si la página viene del caché (bfcache) o fue recargada
+      window.scrollTo(0, parseInt(scrollPos));
+    }
+  });
+</script>

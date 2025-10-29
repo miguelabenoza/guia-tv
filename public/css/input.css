@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@layer components {
+    article p {
+        font-size: 18px;
+        margin-bottom: 1rem;
+    }
+
+    article h2 {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 6px;
+    }
+
+    article strong {
+        font-weight: 400;
+    }
+}
