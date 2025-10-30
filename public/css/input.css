@@ -6,13 +6,29 @@
         margin-bottom: 1rem;
     }
 
-    article h2 {
+    article h2, h3 {
         font-size: 20px;
         font-weight: 700;
+        margin-top: 1rem;
         margin-bottom: 6px;
     }
 
     article strong {
         font-weight: 400;
+    }
+
+    article figure {
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        margin-bottom: 1rem;
+    }
+
+    article img {
+        border-radius: 8px;
+    }
+
+    figcaption {
+        display: none;
     }
 }

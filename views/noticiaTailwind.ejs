@@ -35,7 +35,7 @@
         <article class="mb-4 pl-5 pr-5 md:pl-0 md:pr-0"><%= noticia.subtitulo %></article>
         <article class="pl-5 pr-5 md:pl-0 md:pr-0"><%- noticia.contenido_html %></article>
         <% } else { %>
-        <img class="aspect-video object-cover md:rounded-lg mb-4 place-items-center"  src="<%= noticia.img %>" alt="<%= noticia.titulo %>">
+        <img class="w-full object-cover md:rounded-lg mb-4 place-items-center"  src="<%= noticia.img %>" alt="<%= noticia.titulo %>">
         <article class="mb-4 pl-5 pr-5 md:pl-0 md:pr-0"><%- noticia.contenido_html %></article>
         <% } %>
     </div>

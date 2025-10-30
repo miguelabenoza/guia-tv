@@ -11,13 +11,10 @@
     --color-amber-600: oklch(66.6% 0.179 58.318);
     --color-indigo-500: oklch(58.5% 0.233 277.117);
     --color-gray-200: oklch(92.8% 0.006 264.531);
-    --color-gray-300: oklch(87.2% 0.01 258.338);
     --color-gray-400: oklch(70.7% 0.022 261.325);
     --spacing: 0.25rem;
     --container-3xl: 48rem;
     --container-7xl: 80rem;
-    --text-xs: 0.75rem;
-    --text-xs--line-height: calc(1 / 0.75);
     --text-sm: 0.875rem;
     --text-sm--line-height: calc(1.25 / 0.875);
     --text-base: 1rem;
@@ -353,10 +350,6 @@
     font-size: var(--text-2xl);
     line-height: var(--tw-leading, var(--text-2xl--line-height));
   }
-  .text-base {
-    font-size: var(--text-base);
-    line-height: var(--tw-leading, var(--text-base--line-height));
-  }
   .text-sm {
     font-size: var(--text-sm);
     line-height: var(--tw-leading, var(--text-sm--line-height));
@@ -364,10 +357,6 @@
   .text-xl {
     font-size: var(--text-xl);
     line-height: var(--tw-leading, var(--text-xl--line-height));
-  }
-  .text-xs {
-    font-size: var(--text-xs);
-    line-height: var(--tw-leading, var(--text-xs--line-height));
   }
   .font-bold {
     --tw-font-weight: var(--font-weight-bold);
@@ -727,13 +716,26 @@
     font-size: 18px;
     margin-bottom: 1rem;
   }
-  article h2 {
+  article h2, h3 {
     font-size: 20px;
     font-weight: 700;
+    margin-top: 1rem;
     margin-bottom: 6px;
   }
   article strong {
     font-weight: 400;
+  }
+  article figure {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+  }
+  article img {
+    border-radius: 8px;
+  }
+  figcaption {
+    display: none;
   }
 }
 @property --tw-border-style {
