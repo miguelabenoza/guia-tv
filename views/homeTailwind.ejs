@@ -1,7 +1,7 @@
 <%- include('header.ejs') %>
 
 <main>
-    <div class="grid p-4 mb-8 border-b-gray-400 md:gap-6 md:p-10 md:grid-cols-12 lg:grid-cols-12 lg:p-8 lg:gap-6 max-w-7xl m-auto">
+    <div class="grid p-4 mb-8 border-b-gray-400 md:gap-6 md:p-10 md:grid-cols-12 lg:grid-cols-12 lg:p-8 lg:gap-8 max-w-7xl m-auto">
 
         <!-- Barcelona -->
         <div class="flex mt-8 pl-2 mb-3 md:mb-0 lg:mb-0 place-items-center md:col-span-12">
@@ -32,7 +32,7 @@
 
                                 <div class="flex  mt-4 md:pl-4">
                                     <picture>
-                                        <img class="w-5" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
+                                        <img class="w-5 rounded-none" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
                                     </picture>
                                     <span class="text-sm ml-2 md:ml-2"><%= noticia.medio %></span>
                                     <span class="text-sm ml-1 md:ml-1">·</span>
@@ -51,7 +51,7 @@
                                     <img src="<%= noticia.img %>" alt="<%= noticia.medio %>" class="rounded-md md:rounded-bl-none md:rounded-br-none col-start-1 aspect-square object-cover md:aspect-video md:object-cover md:place-content-start md:rounded-tl-lg md:rounded-tr-lg">
                                 </picture>
                             </div>
-                            <div class="grid col-span-2 content-between p-2 md:place-content-start md:content-between md:p-4">
+                            <div class="grid col-span-2 content-between pl-2 pr-2 md:place-content-start md:content-between md:p-4">
                                 <h1 class="font-bold text-sm md:text-sm md:pl-0 md:pr-0 md:mb-6">
                                     <% if (noticia.video) { %>
                                         <span class=" text-amber-50 bg-indigo-500 pl-2 pr-2 inline-flex text-sm">video</span> 
@@ -62,17 +62,17 @@
                                 
                                 <div class="flex items-center md:pl-0">
                                     <picture>
-                                        <img class="w-5" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
+                                        <img class="w-5 rounded-none" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
                                     </picture>
-                                    <span class="hidden md:block text-sm ml-2 md:ml-2"><%= noticia.medio %></span>
-                                    <span class="hidden md:block text-sm ml-1 md:ml-1">·</span>
-                                    <span class="text-sm ml-1 md:ml-1 text-gray-400"><%= noticia.hace %></span>
+                                    <span class="hidden md:block text-xs ml-2 md:ml-2"><%= noticia.medio %></span>
+                                    <span class="hidden md:block text-xs ml-1 md:ml-1">·</span>
+                                    <span class="text-xs ml-1 md:ml-1 text-gray-400"><%= noticia.hace %></span>
                                 </div>
                             </div>
                         </article>
                     </a>
-                <% } else if ([4, 5].includes(index)) { %>
-                    <!-- <a href="/noticia/<%= noticia._id %>" class="grid md:col-span-6 lg:col-span-6">
+                <% } else if ([5, 6].includes(index)) { %>
+                    <a href="/noticia/<%= noticia._id %>" class="grid md:col-span-6 lg:col-span-6">
                         <article class="grid grid-cols-3 pt-4 pb-4 md:pt-0 md:pb-0 border-b-gray-400 md:border md:border-gray-200 md:grid-cols-1 md:rounded-lg cursor-pointer   lg:grid-cols-2 lg:items-center">
                             <div class="grid place-items-center md:place-items-start">
                                 <picture>
@@ -94,9 +94,9 @@
                             </div>
                         </article>
                     </a>
-                 -->
-                <% } else if ([6, 7, 8, 9].includes(index)) { %>
-                    <!-- <a href="/noticia/<%= noticia._id %>" class="grid md:col-span-6 lg:col-span-3">
+                
+                <% } else if ([7, 8, 9, 10, 11].includes(index)) { %>
+                    <a href="/noticia/<%= noticia._id %>" class="grid md:col-span-6 lg:col-span-3">
                         <article class="grid grid-cols-3 pt-4 pb-4 md:pt-0 md:pb-0 border-b-gray-400 md:border md:border-gray-200 md:grid-cols-1 md:rounded-lg cursor-pointer  ">
                             <div class="grid place-items-center md:place-items-start">
                                 <picture>
@@ -108,7 +108,7 @@
                                 
                                 <div class="flex items-center md:pl-0">
                                     <picture>
-                                        <img class="w-5" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
+                                        <img class="w-5 rounded-none" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
                                     </picture>
                                     <span class="hidden md:block text-sm ml-2 md:ml-2"><%= noticia.medio %></span>
                                     <span class="hidden md:block text-sm ml-1 md:ml-1">·</span>
@@ -116,7 +116,7 @@
                                 </div>
                             </div>
                         </article>
-                    </a> -->
+                    </a>
 
                 <% } else { %>
                     <!-- <a href="/noticia/<%= noticia._id %>" class="grid md:col-span-4">
@@ -177,7 +177,7 @@
 
                                 <div class="flex items-center mt-4 md:pl-4">
                                     <picture>
-                                        <img class="w-5" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
+                                        <img class="w-5 rounded-none" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
                                     </picture>
                                     <span class="text-sm ml-2 md:ml-2"><%= noticia.medio %></span>
                                     <span class="text-sm ml-1 md:ml-1">·</span>
@@ -206,17 +206,17 @@
                                 
                                 <div class="flex items-center md:pl-0">
                                     <picture>
-                                        <img class="w-5" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
+                                        <img class="w-5 rounded-none" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
                                     </picture>
-                                    <span class="hidden md:block text-sm ml-2 md:ml-2"><%= noticia.medio %></span>
-                                    <span class="hidden md:block text-sm ml-1 md:ml-1">·</span>
-                                    <span class="text-sm ml-1 md:ml-1 text-gray-400"><%= noticia.hace %></span>
+                                    <span class="hidden md:block text-xs ml-2 md:ml-2"><%= noticia.medio %></span>
+                                    <span class="hidden md:block text-xs ml-1 md:ml-1">·</span>
+                                    <span class="text-xs ml-1 md:ml-1 text-gray-400"><%= noticia.hace %></span>
                                 </div>
                             </div>
                         </article>
                     </a>
-                <% } else if ([4, 5].includes(index)) { %>
-                    <!-- <a href="/noticia/<%= noticia._id %>" class="grid md:col-span-6 lg:col-span-6">
+                <% } else if ([5, 6].includes(index)) { %>
+                    <a href="/noticia/<%= noticia._id %>" class="grid md:col-span-6 lg:col-span-6">
                         <article class="grid grid-cols-3 pt-4 pb-4 md:pt-0 md:pb-0 border-b-gray-400 md:border md:border-gray-200 md:grid-cols-1 md:rounded-lg cursor-pointer   lg:grid-cols-2 lg:items-center">
                             <div class="grid place-items-center md:place-items-start">
                                 <picture>
@@ -229,7 +229,7 @@
 
                                 <div class="flex items-center md:pl-0">
                                     <picture>
-                                        <img class="w-5" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
+                                        <img class="w-5 rounded-none" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
                                     </picture>
                                     <span class="hidden md:block text-sm ml-2 md:ml-2"><%= noticia.medio %></span>
                                     <span class="hidden md:block text-sm ml-1 md:ml-1">·</span>
@@ -238,9 +238,9 @@
                             </div>
                         </article>
                     </a>
-                 -->
-                <% } else if ([6, 7, 8, 9].includes(index)) { %>
-                    <!-- <a href="/noticia/<%= noticia._id %>" class="grid md:col-span-6 lg:col-span-3">
+                
+                <% } else if ([7, 8, 9, 10].includes(index)) { %>
+                    <a href="/noticia/<%= noticia._id %>" class="grid md:col-span-6 lg:col-span-3">
                         <article class="grid grid-cols-3 pt-4 pb-4 md:pt-0 md:pb-0 border-b-gray-400 md:border md:border-gray-200 md:grid-cols-1 md:rounded-lg cursor-pointer  ">
                             <div class="grid place-items-center md:place-items-start">
                                 <picture>
@@ -252,7 +252,7 @@
                                 
                                 <div class="flex items-center md:pl-0">
                                     <picture>
-                                        <img class="w-5" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
+                                        <img class="w-5 rounded-none" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
                                     </picture>
                                     <span class="hidden md:block text-sm ml-2 md:ml-2"><%= noticia.medio %></span>
                                     <span class="hidden md:block text-sm ml-1 md:ml-1">·</span>
@@ -260,7 +260,7 @@
                                 </div>
                             </div>
                         </article>
-                    </a> -->
+                    </a>
 
                 <% } else { %>
                     <!-- <a href="/noticia/<%= noticia._id %>" class="grid md:col-span-4">
@@ -320,7 +320,7 @@
                                 
                                 <div class="flex items-center mt-4 md:pl-4">
                                     <picture>
-                                        <img class="w-5" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
+                                        <img class="w-5 rounded-none" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
                                     </picture>
                                     <span class="text-sm ml-2 md:ml-2"><%= noticia.medio %></span>
                                     <span class="text-sm ml-1 md:ml-1">·</span>
@@ -349,17 +349,17 @@
                                 
                                 <div class="flex items-center md:pl-0">
                                     <picture>
-                                        <img class="w-5" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
+                                        <img class="w-5 rounded-none" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
                                     </picture>
-                                    <span class="hidden md:block text-sm ml-2 md:ml-2"><%= noticia.medio %></span>
-                                    <span class="hidden md:block text-sm ml-1 md:ml-1">·</span>
-                                    <span class="text-sm ml-1 md:ml-1 text-gray-400"><%= noticia.hace %></span>
+                                    <span class="hidden md:block text-xs ml-2 md:ml-2"><%= noticia.medio %></span>
+                                    <span class="hidden md:block text-xs ml-1 md:ml-1">·</span>
+                                    <span class="text-xs ml-1 md:ml-1 text-gray-400"><%= noticia.hace %></span>
                                 </div>
                             </div>
                         </article>
                     </a>
-                <% } else if ([4, 5].includes(index)) { %>
-                    <!-- <a href="/noticia/<%= noticia._id %>" class="grid md:col-span-6 lg:col-span-6">
+                <% } else if ([5, 6].includes(index)) { %>
+                    <a href="/noticia/<%= noticia._id %>" class="grid md:col-span-6 lg:col-span-6">
                         <article class="grid grid-cols-3 pt-4 pb-4 md:pt-0 md:pb-0 border-b-gray-400 md:border md:border-gray-200 md:grid-cols-1 md:rounded-lg cursor-pointer   lg:grid-cols-2 lg:items-center">
                             <div class="grid place-items-center md:place-items-start">
                                 <picture>
@@ -372,7 +372,7 @@
 
                                 <div class="flex items-center md:pl-0">
                                     <picture>
-                                        <img class="w-5" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
+                                        <img class="w-5 rounded-none" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
                                     </picture>
                                     <span class="hidden md:block text-sm ml-2 md:ml-2"><%= noticia.medio %></span>
                                     <span class="hidden md:block text-sm ml-1 md:ml-1">·</span>
@@ -381,9 +381,9 @@
                             </div>
                         </article>
                     </a>
-                 -->
-                <% } else if ([6, 7, 8, 9].includes(index)) { %>
-                    <!-- <a href="/noticia/<%= noticia._id %>" class="grid md:col-span-6 lg:col-span-3">
+                
+                <% } else if ([7, 8, 9, 10].includes(index)) { %>
+                    <a href="/noticia/<%= noticia._id %>" class="grid md:col-span-6 lg:col-span-3">
                         <article class="grid grid-cols-3 pt-4 pb-4 md:pt-0 md:pb-0 border-b-gray-400 md:border md:border-gray-200 md:grid-cols-1 md:rounded-lg cursor-pointer  ">
                             <div class="grid place-items-center md:place-items-start">
                                 <picture>
@@ -395,7 +395,7 @@
                                 
                                 <div class="flex items-center md:pl-0">
                                     <picture>
-                                        <img class="w-5" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
+                                        <img class="w-5 rounded-none" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
                                     </picture>
                                     <span class="hidden md:block text-sm ml-2 md:ml-2"><%= noticia.medio %></span>
                                     <span class="hidden md:block text-sm ml-1 md:ml-1">·</span>
@@ -403,7 +403,7 @@
                                 </div>
                             </div>
                         </article>
-                    </a> -->
+                    </a>
 
                 <% } else { %>
                     <!-- <a href="/noticia/<%= noticia._id %>" class="grid md:col-span-4">
@@ -434,6 +434,7 @@
             <p>No hay noticias disponibles.</p>
         <% } %>
         
+
         <!-- El Chiringuito de jugones -->
         <% if (noticiasChiringuito.length > 0) { %>
         <div class="flex mt-8 pl-2 md:mb-0 lg:mb-0 place-items-center md:col-span-12">
@@ -460,15 +461,18 @@
                             <picture>
                                 <img class="w-5" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
                             </picture>
-                            <span class="hidden md:block text-sm ml-2 md:ml-2"><%= noticia.medio %></span>
-                            <span class="hidden md:block text-sm ml-1 md:ml-1">·</span>
-                            <span class="text-sm ml-1 md:ml-1 text-gray-400"><%= noticia.hace %></span>
+                            <span class="hidden md:block text-xs ml-2 md:ml-2"><%= noticia.medio %></span>
+                            <span class="hidden md:block text-xs ml-1 md:ml-1">·</span>
+                            <span class="text-xs ml-1 md:ml-1 text-gray-400"><%= noticia.hace %></span>
                         </div>
                     </div>
                 </article>
             </a>
         <% }) %>
+
         <% } %>
+        
+        
     </div>
 
 

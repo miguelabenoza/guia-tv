@@ -35,7 +35,7 @@ export async function mostrarProximosPartidos(req, res, next) {
 
     const noticiasBarcelonaHoy = await Noticia.find({
         categoria: "Barcelona",
-    }).sort({ fechaHora: -1 }).limit(5);
+    }).sort({ fechaHora: -1 }).limit(11);
 
 
     const noticiasBarcelona = noticiasBarcelonaHoy.map(noticia => ({
@@ -45,7 +45,7 @@ export async function mostrarProximosPartidos(req, res, next) {
 
     const noticiasMadridHoy = await Noticia.find({
         categoria: "Madrid",
-    }).sort({ fechaHora: -1 }).limit(5);
+    }).sort({ fechaHora: -1 }).limit(11);
 
 
     const noticiasMadrid = noticiasMadridHoy.map(noticia => ({
@@ -55,7 +55,7 @@ export async function mostrarProximosPartidos(req, res, next) {
 
     const noticiasInternacionalHoy = await Noticia.find({
         categoria: "Internacional",
-    }).sort({ fechaHora: -1 }).limit(5);
+    }).sort({ fechaHora: -1 }).limit(11);
 
 
     const noticiasInternacional = noticiasInternacionalHoy.map(noticia => ({
