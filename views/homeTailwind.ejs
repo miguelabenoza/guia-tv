@@ -80,16 +80,21 @@
                                 </picture>
                             </div>
                             <div class="col-span-2 grid content-between p-2 md:place-content-start md:content-between md:p-4 lg:col-span-2 lg:col-start-2 lg:items-center">
-                                <h1 class="font-bold text-sm md:text-sm md:pl-0 md:pr-0 md:mb-6 lg:text-base"><%= noticia.titulo %></h1>
+                                <h1 class="font-bold text-sm md:text-sm md:pl-0 md:pr-0 md:mb-6 lg:text-base">
+                                    <% if (noticia.video) { %>
+                                        <span class=" text-amber-50 bg-indigo-500 pl-2 pr-2 inline-flex text-sm">video</span> 
+                                    <% } %>
+                                    <%= noticia.titulo %>
+                                </h1>
                                 <h4 class="hidden text-sm pl-2 pr-2 lg:block lg:pr-0 lg:pl-0 lg:mb-6 lg:text-sm"><%= noticia.subtitulo %></h4>
 
                                 <div class="flex items-center md:pl-0">
                                     <picture>
-                                        <img class="w-5" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
+                                        <img class="w-5 rounded-none" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
                                     </picture>
-                                    <span class="hidden md:block text-sm ml-2 md:ml-2"><%= noticia.medio %></span>
-                                    <span class="hidden md:block text-sm ml-1 md:ml-1">·</span>
-                                    <span class="text-sm ml-1 md:ml-1 text-gray-400"><%= noticia.hace %></span>
+                                    <span class="hidden md:block text-xs ml-2 md:ml-2"><%= noticia.medio %></span>
+                                    <span class="hidden md:block text-xs ml-1 md:ml-1">·</span>
+                                    <span class="text-xs ml-1 md:ml-1 text-gray-400"><%= noticia.hace %></span>
                                 </div>
                             </div>
                         </article>
@@ -104,15 +109,20 @@
                                 </picture>
                             </div>
                             <div class="col-span-2 grid content-between p-2 md:place-content-start md:content-between md:p-4">
-                                <h1 class="font-bold text-sm md:text-sm md:pl-0 md:pr-0 md:mb-6"><%= noticia.titulo %></h1>
+                                <h1 class="font-bold text-sm md:text-sm md:pl-0 md:pr-0 md:mb-6">
+                                    <% if (noticia.video) { %>
+                                        <span class=" text-amber-50 bg-indigo-500 pl-2 pr-2 inline-flex text-sm">video</span> 
+                                    <% } %>
+                                    <%= noticia.titulo %>
+                                </h1>
                                 
                                 <div class="flex items-center md:pl-0">
                                     <picture>
                                         <img class="w-5 rounded-none" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
                                     </picture>
-                                    <span class="hidden md:block text-sm ml-2 md:ml-2"><%= noticia.medio %></span>
-                                    <span class="hidden md:block text-sm ml-1 md:ml-1">·</span>
-                                    <span class="text-sm ml-1 md:ml-1 text-gray-400"><%= noticia.hace %></span>
+                                    <span class="hidden md:block text-xs ml-2 md:ml-2"><%= noticia.medio %></span>
+                                    <span class="hidden md:block text-xs ml-1 md:ml-1">·</span>
+                                    <span class="text-xs ml-1 md:ml-1 text-gray-400"><%= noticia.hace %></span>
                                 </div>
                             </div>
                         </article>
@@ -224,16 +234,21 @@
                                 </picture>
                             </div>
                             <div class="col-span-2 grid content-between p-2 md:place-content-start md:content-between md:p-4 lg:col-span-2 lg:col-start-2 lg:items-center">
-                                <h1 class="font-bold text-sm md:text-sm md:pl-0 md:pr-0 md:mb-6 lg:text-base"><%= noticia.titulo %></h1>
+                                <h1 class="font-bold text-sm md:text-sm md:pl-0 md:pr-0 md:mb-6 lg:text-base">
+                                    <% if (noticia.video) { %>
+                                        <span class=" text-amber-50 bg-indigo-500 pl-2 pr-2 inline-flex text-sm">video</span> 
+                                    <% } %>
+                                    <%= noticia.titulo %>
+                                </h1>
                                 <h4 class="hidden text-sm pl-2 pr-2 lg:block lg:pr-0 lg:pl-0 lg:mb-6 lg:text-sm"><%= noticia.subtitulo %></h4>
 
                                 <div class="flex items-center md:pl-0">
                                     <picture>
                                         <img class="w-5 rounded-none" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
                                     </picture>
-                                    <span class="hidden md:block text-sm ml-2 md:ml-2"><%= noticia.medio %></span>
-                                    <span class="hidden md:block text-sm ml-1 md:ml-1">·</span>
-                                    <span class="text-sm ml-1 md:ml-1 text-gray-400"><%= noticia.hace %></span>
+                                    <span class="hidden md:block text-xs ml-2 md:ml-2"><%= noticia.medio %></span>
+                                    <span class="hidden md:block text-xs ml-1 md:ml-1">·</span>
+                                    <span class="text-xs ml-1 md:ml-1 text-gray-400"><%= noticia.hace %></span>
                                 </div>
                             </div>
                         </article>
@@ -248,15 +263,20 @@
                                 </picture>
                             </div>
                             <div class="col-span-2 grid content-between p-2 md:place-content-start md:content-between md:p-4">
-                                <h1 class="font-bold text-sm md:text-sm md:pl-0 md:pr-0 md:mb-6"><%= noticia.titulo %></h1>
+                                <h1 class="font-bold text-sm md:text-sm md:pl-0 md:pr-0 md:mb-6">
+                                    <% if (noticia.video) { %>
+                                        <span class=" text-amber-50 bg-indigo-500 pl-2 pr-2 inline-flex text-sm">video</span> 
+                                    <% } %>
+                                    <%= noticia.titulo %>
+                                </h1>
                                 
                                 <div class="flex items-center md:pl-0">
                                     <picture>
                                         <img class="w-5 rounded-none" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
                                     </picture>
-                                    <span class="hidden md:block text-sm ml-2 md:ml-2"><%= noticia.medio %></span>
-                                    <span class="hidden md:block text-sm ml-1 md:ml-1">·</span>
-                                    <span class="text-sm ml-1 md:ml-1 text-gray-400"><%= noticia.hace %></span>
+                                    <span class="hidden md:block text-xs ml-2 md:ml-2"><%= noticia.medio %></span>
+                                    <span class="hidden md:block text-xs ml-1 md:ml-1">·</span>
+                                    <span class="text-xs ml-1 md:ml-1 text-gray-400"><%= noticia.hace %></span>
                                 </div>
                             </div>
                         </article>
@@ -367,16 +387,21 @@
                                 </picture>
                             </div>
                             <div class="col-span-2 grid content-between p-2 md:place-content-start md:content-between md:p-4 lg:col-span-2 lg:col-start-2 lg:items-center">
-                                <h1 class="font-bold text-sm md:text-sm md:pl-0 md:pr-0 md:mb-6 lg:text-base"><%= noticia.titulo %></h1>
+                                <h1 class="font-bold text-sm md:text-sm md:pl-0 md:pr-0 md:mb-6 lg:text-base">
+                                    <% if (noticia.video) { %>
+                                        <span class=" text-amber-50 bg-indigo-500 pl-2 pr-2 inline-flex text-sm">video</span> 
+                                    <% } %>
+                                    <%= noticia.titulo %>
+                                </h1>
                                 <h4 class="hidden text-sm pl-2 pr-2 lg:block lg:pr-0 lg:pl-0 lg:mb-6 lg:text-sm"><%= noticia.subtitulo %></h4>
 
                                 <div class="flex items-center md:pl-0">
                                     <picture>
                                         <img class="w-5 rounded-none" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
                                     </picture>
-                                    <span class="hidden md:block text-sm ml-2 md:ml-2"><%= noticia.medio %></span>
-                                    <span class="hidden md:block text-sm ml-1 md:ml-1">·</span>
-                                    <span class="text-sm ml-1 md:ml-1 text-gray-400"><%= noticia.hace %></span>
+                                    <span class="hidden md:block text-xs ml-2 md:ml-2"><%= noticia.medio %></span>
+                                    <span class="hidden md:block text-xs ml-1 md:ml-1">·</span>
+                                    <span class="text-xs ml-1 md:ml-1 text-gray-400"><%= noticia.hace %></span>
                                 </div>
                             </div>
                         </article>
@@ -391,15 +416,20 @@
                                 </picture>
                             </div>
                             <div class="col-span-2 grid content-between p-2 md:place-content-start md:content-between md:p-4">
-                                <h1 class="font-bold text-sm md:text-sm md:pl-0 md:pr-0 md:mb-6"><%= noticia.titulo %></h1>
+                                <h1 class="font-bold text-sm md:text-sm md:pl-0 md:pr-0 md:mb-6">
+                                    <% if (noticia.video) { %>
+                                        <span class=" text-amber-50 bg-indigo-500 pl-2 pr-2 inline-flex text-sm">video</span> 
+                                    <% } %>
+                                    <%= noticia.titulo %>
+                                </h1>
                                 
                                 <div class="flex items-center md:pl-0">
                                     <picture>
                                         <img class="w-5 rounded-none" src="<%= noticia.logo %>" alt="<%= noticia.medio %>">
                                     </picture>
-                                    <span class="hidden md:block text-sm ml-2 md:ml-2"><%= noticia.medio %></span>
-                                    <span class="hidden md:block text-sm ml-1 md:ml-1">·</span>
-                                    <span class="text-sm ml-1 md:ml-1 text-gray-400"><%= noticia.hace %></span>
+                                    <span class="hidden md:block text-xs ml-2 md:ml-2"><%= noticia.medio %></span>
+                                    <span class="hidden md:block text-xs ml-1 md:ml-1">·</span>
+                                    <span class="text-xs ml-1 md:ml-1 text-gray-400"><%= noticia.hace %></span>
                                 </div>
                             </div>
                         </article>
